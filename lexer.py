@@ -19,7 +19,7 @@ class Lexer:
             if self.current_char in WHITESPACES:
                 self.advance()
             if self.current_char == '.' or self.current_char in DIGITS:
-                self.generate_number()
+                yield self.generate_number()
             elif self.current_char == '+':
                 self.advance()
                 yield Token(TokenType.ADD)
@@ -60,4 +60,4 @@ class Lexer:
         if num_str.endswith('.'):
             num_str = num_str + '0'
 
-        yield Token(TokenType.NUM, float(num_str))
+        return Token(TokenType.NUM, float(num_str))
