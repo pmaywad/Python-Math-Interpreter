@@ -24,11 +24,19 @@ Run: python main.py or python3 main.py
 
 e.g. output
 calc >12*13-4
+
 152.0
+
 calc >-12
+
 -12.0
+
 calc >-(12*13+(4*8))
+
 -188.0
+
 calc >+12
+
 12.0
+
 calc >
