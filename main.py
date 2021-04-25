@@ -1,5 +1,6 @@
 from lexer import Lexer
 from parser_ import Parser
+from interpreter import Interpreter
 
 while True:
     try:
@@ -8,6 +9,12 @@ while True:
         tokens = lexer.generate_tokens()
         parser = Parser(tokens)
         expression = parser.parser()
-        print(expression)
+        #print(expression)
+        if not expression:
+            continue
+        interpreter = Interpreter()
+        result = interpreter.visit_node(expression)
+        print(result)
+
     except Exception as e:
         print("Error:", e)

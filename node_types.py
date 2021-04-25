@@ -2,10 +2,10 @@ from dataclasses import dataclass
 
 @dataclass
 class NumNode:
-    num : float
+    value : float
 
     def __repr__(self):
-        return f"{self.num}"
+        return f"{self.value}"
 
 @dataclass
 class AddNode:
