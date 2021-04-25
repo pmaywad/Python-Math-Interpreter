@@ -1,5 +1,5 @@
 from lexer import Lexer
-from parser import Parser
+from parser_ import Parser
 
 while True:
     text = input("calc >")

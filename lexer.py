@@ -52,7 +52,7 @@ class Lexer:
                 if decimal_count > 1:
                     break
 
-            num_str =+ self.current_char
+            num_str += self.current_char
             self.advance()
 
         if num_str.startswith('.'):

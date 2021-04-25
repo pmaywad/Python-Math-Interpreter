@@ -72,7 +72,7 @@ class Parser:
         Parser to parse numbers
         """
         token = self.current_token
-        if token.type == TokenType.NUM:
+        if token is not None and token.type is TokenType.NUM:
             self.advance()
             return NumNode(token.value)
 
