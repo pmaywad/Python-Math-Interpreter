@@ -1,5 +1,5 @@
 # Python-Math-Interpreter
-A mathematics interpreter from scratch using python which can perform basic mathematical operations. The input test is first processed by a lexer, then syntax analysis and parsing is done using parser. Finally the computation is done by the interpreter.
+A mathematics interpreter from scratch using python which can perform basic mathematical operations. The input test is first processed by a lexer, then syntax analysis and parsing are done using the parser. Finally, the computation is done by the interpreter.
 
 ## Lexer
 Lexer does the lexical analysis on the input text and identifies the tokens and type of each token. 
