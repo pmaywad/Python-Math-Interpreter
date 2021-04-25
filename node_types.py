@@ -38,3 +38,23 @@ class DivideNode:
 
     def __repr__(self):
         return f"({self.node_a}/{self.node_b})"
+
+@dataclass
+class PlusNode:
+    """
+    +5 ==> 5
+    """
+    node_a: any
+
+    def __repr__(self):
+        return f"({self.node_a})"
+
+@dataclass
+class MinusNode:
+    """
+    To represent unary operation - eg. -5
+    """
+    node_a : any
+
+    def __repr__(self):
+        return f"(-{self.node_a})"

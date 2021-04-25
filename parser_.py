@@ -51,7 +51,6 @@ class Parser:
 
         return result
 
-
     def term(self):
         """
         A term contains of multiplication and division of Number
@@ -72,8 +71,26 @@ class Parser:
         Parser to parse numbers
         """
         token = self.current_token
-        if token is not None and token.type is TokenType.NUM:
-            self.advance()
-            return NumNode(token.value)
+        if token is not None:
+
+            if token.type is TokenType.LPAREN:
+                self.advance()
+                result = self.expr()
+                if self.current_token.type is not TokenType.RPAREN:
+                    self.raise_error()
+                self.advance()
+                return result
+
+            elif token.type is TokenType.NUM:
+                self.advance()
+                return NumNode(token.value)
+
+            elif token.type is TokenType.ADD:
+                self.advance()
+                return PlusNode(self.number())
+
+            elif token.type is TokenType.SUB:
+                self.advance()
+                return MinusNode(self.number())
 
         self.raise_error()
