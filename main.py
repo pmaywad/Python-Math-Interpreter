@@ -1,7 +1,10 @@
 from lexer import Lexer
+from parser import Parser
 
 while True:
     text = input("calc >")
     lexer = Lexer(text)
-    x = lexer.generate_tokens()
-    print(list(x))
+    tokens = lexer.generate_tokens()
+    parser = Parser(tokens)
+    expression = parser.parser()
+    print(expression)
