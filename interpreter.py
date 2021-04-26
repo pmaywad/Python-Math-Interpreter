@@ -27,6 +27,9 @@ class Interpreter:
         except:
             print("Math error")
 
+    def visit_ExponentialNode(self, node):
+        return Number(self.visit_node(node.node_a).value ** self.visit_node(node.node_b).value)
+
     def visit_PlusNode(self, node):
         return self.visit_node(node.node_a)
 

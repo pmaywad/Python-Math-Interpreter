@@ -38,6 +38,9 @@ class Lexer:
             elif self.current_char == ')':
                 self.advance()
                 yield Token(TokenType.RPAREN)
+            elif self.current_char =='^':
+                self.advance()
+                yield Token(TokenType.EXPONENT)
             else:
                 raise Exception(f"Illegal character :'{self.current_char}'")
 

@@ -40,6 +40,14 @@ class DivideNode:
         return f"({self.node_a}/{self.node_b})"
 
 @dataclass
+class ExponentialNode:
+    node_a : any
+    node_b : any
+
+    def __repr__(self):
+        return f"({self.node_a}^{self.node_b})"
+
+@dataclass
 class PlusNode:
     """
     +5 ==> 5

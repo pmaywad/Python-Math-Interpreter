@@ -55,14 +55,25 @@ class Parser:
         """
         A term contains of multiplication and division of Number
         """
-        result = self.number()
+        result = self.exponential()
         while self.current_token is not None and self.current_token.type in (TokenType.MUL, TokenType.DIVIDE):
             if self.current_token.type is TokenType.MUL:
                 self.advance()
-                result = MulNode(result, self.number())
+                result = MulNode(result, self.exponential())
             elif self.current_token.type is TokenType.DIVIDE:
                 self.advance()
                 result = DivideNode(result, self.number())
+
+        return result
+
+    def exponential(self):
+        """
+        An exponential contains of a^b
+        """
+        result = self.number()
+        while self.current_token is not None and self.current_token.type is TokenType.EXPONENT:
+            self.advance()
+            result = ExponentialNode(result, self.number())
 
         return result
 
